@@ -38,6 +38,7 @@ public class PlayerMovements : MonoBehaviour
         PlayerEvents.OnPlayerMovement += Move;
         PlayerEvents.OnPlayerStop += StopMovement;
         PlayerEvents.OnPlayerJump += Jump;
+        PlayerEvents.OnPlayerJump += StopMoving;
     }
 
     private void OnDisable()
@@ -45,7 +46,13 @@ public class PlayerMovements : MonoBehaviour
         PlayerEvents.OnPlayerMovement -= Move;
         PlayerEvents.OnPlayerStop -= StopMovement;
         PlayerEvents.OnPlayerJump -= Jump;
+        PlayerEvents.OnPlayerJump -= StopMoving;
 
+    }
+
+    private void StopMoving()
+    {
+        _rb.bodyType = RigidbodyType2D.Static;
     }
     private void Update()
     {

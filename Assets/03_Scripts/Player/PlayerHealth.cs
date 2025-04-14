@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Assets._03_Scripts.Core.Events;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -45,17 +46,6 @@ namespace Assets._03_Scripts.Player
         {
             healthAmount.text = _currentHealth.ToString();
         }
-        public void TakeDamage(int attackDamage)
-        {
-            _currentHealth -= attackDamage;
-
-            _anim.SetTrigger("hurt");
-            if (_currentHealth <= 0)
-            {
-                Die();
-            }
-
-        }
 
         public void Heal(int healingAmount)
         {
@@ -68,6 +58,20 @@ namespace Assets._03_Scripts.Player
 
         }
 
+        public void TakeDamage(int attackDamage)
+        {
+            _currentHealth -= attackDamage;
+
+            _anim.SetTrigger("Hurt");
+            if (_currentHealth <= 0)
+            {
+                _currentHealth = 0;
+                PlayerEvents.TriggerPlayerStopAfterDeath();
+                BossEvents.TriggerPlayerKilled();
+                _anim.SetTrigger("Die");
+            }
+
+        }
 
         public void Die()
         {

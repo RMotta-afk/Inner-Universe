@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class HealthPotion : Item
 {
-    private int _healingAmount = 30;
+    //private int _healingAmount = 30;
 
-    public static event Action<int> OnPlayerHeal;
-    public override void UseItem()
-    {
-        OnPlayerHeal?.Invoke(_healingAmount);
+    //public static event Action<int> OnPlayerHeal;
+    //public override void UseItem()
+    //{
+    //    OnPlayerHeal?.Invoke(_healingAmount);
 
-        Destroy(gameObject);
+    //    Destroy(gameObject);
 
-    }
+    //}
 }

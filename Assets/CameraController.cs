@@ -6,7 +6,7 @@ public class CameraController : MonoBehaviour
     public Transform target;
     public Camera cam;
     public float smoothSpeed = 0.125f; 
-    public Vector3 offset = new Vector3(0f, 0f, -10f);
+    public Vector3 offset = new Vector3(0f, 0f, -20f);
     public float cameraSize = 5f; 
     public float sizeSmoothTime = 0.3f;
     private float sizeVelocity;
@@ -52,7 +52,6 @@ public class CameraController : MonoBehaviour
             desiredPosition.y = Mathf.Clamp(desiredPosition.y, minY, maxY);
         }
 
-        offset.z = -15;
         // Make the camera's movement smooth.
         Vector3 smoothedPosition = Vector3.SmoothDamp(transform.position, desiredPosition, ref velocity, smoothSpeed);
         transform.position = smoothedPosition;

@@ -12,9 +12,11 @@ public static class PlayerEvents
     public static event Action OnPLayerKilled;
     public static event Action<int> OnPlayerHeal;
 
+    public static event Action OnStopAfterDeath;
+
     public static event Action<int> OnPlayerHealUp;
 
-    public static event Action OnPlayerAttack;
+    public static event Action<string> OnPlayerAttack;
     public static void TriggerPlayerMovement(Vector2 moveDirection) => OnPlayerMovement?.Invoke(moveDirection);
 
     public static void TriggerPlayerJump() => OnPlayerJump?.Invoke();
@@ -29,7 +31,9 @@ public static class PlayerEvents
 
     public static void TriggerPlayerLevelUpHealth(int healthAmount) => OnPlayerHealUp?.Invoke(healthAmount);
 
-    public static void TriggerPlayerAttack() => OnPlayerAttack?.Invoke();
+    public static void TriggerPlayerAttack(string trigger) => OnPlayerAttack?.Invoke(trigger);
+
+    public static void TriggerPlayerStopAfterDeath() => OnStopAfterDeath?.Invoke();
 
 
 
