@@ -6,6 +6,7 @@ public class InputHandler : MonoBehaviour
     {
         HandlePlayerMovement();
         HandlePlayerJump();
+        HandleAttack();
     }
 
     private void HandlePlayerMovement()
@@ -26,6 +27,15 @@ public class InputHandler : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             PlayerEvents.TriggerPlayerJump();
+        }
+    }
+
+    private void HandleAttack()
+    {
+        if (Input.GetKeyDown(KeyCode.B) )
+        {
+            PlayerEvents.TriggerPlayerAttack();
+
         }
     }
 }

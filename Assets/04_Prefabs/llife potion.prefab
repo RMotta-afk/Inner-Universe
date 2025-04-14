@@ -152,6 +152,7 @@ GameObject:
   - component: {fileID: -4528696757076453145}
   - component: {fileID: -1179022159856790056}
   - component: {fileID: -3981695641216810622}
+  - component: {fileID: 7095067574371674787}
   m_Layer: 5
   m_Name: llife potion
   m_TagString: Item
@@ -258,7 +259,6 @@ MonoBehaviour:
   ID: 1
   Name: life potion
   Description: +100HP
-  itemImage: {fileID: 2578884500040919312}
 --- !u!212 &-1179022159856790056
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -350,3 +350,18 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.375
+--- !u!114 &7095067574371674787
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3587492539008904482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 496b3c6b930c27f43b1fecaace88933a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ID: 0
+  Name: 
+  Description: 
