@@ -10,7 +10,6 @@ public class PlayerMovements : MonoBehaviour
     private AudioSource footsteps;
     public LayerMask ground;
     [SerializeField] private float _moveSpeed = 5f;
-    [SerializeField] private int _health = 100;
     private readonly float jumpForce = 10f;
 
     public enum State { idle, walking, jumping, falling }
