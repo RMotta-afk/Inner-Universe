@@ -24,7 +24,7 @@ public class Item : MonoBehaviour, IItem
     {
         if (Name.Contains("potion"))
         {
-            OnPlayerHeal?.Invoke(_healingAmount);
+            PlayerEvents.TriggerPlayerHeal(_healingAmount);
 
             Destroy(gameObject);
         }
