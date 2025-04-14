@@ -33,7 +33,7 @@ public class InventoryController : MonoBehaviour
     {
         foreach(Transform slotTransform in inventoryHud.transform)
         {
-            Slot slot = slotTransform.GetComponent<Slot>();
+            InventorySlot slot = slotTransform.GetComponent<InventorySlot>();
             if(slot != null && slot.currentItem == null)
             {
                 GameObject newItem = Instantiate(itemPrefab, slotTransform);
@@ -52,7 +52,7 @@ public class InventoryController : MonoBehaviour
 
         foreach(Transform slotTransform in inventoryHud.transform)
         {
-            Slot slot = slotTransform.GetComponent<Slot>();
+            InventorySlot slot = slotTransform.GetComponent<InventorySlot>();
             if(slot.currentItem != null)
             {
                 Item item = slot.currentItem.GetComponent<Item>();
@@ -77,7 +77,7 @@ public class InventoryController : MonoBehaviour
         {
             if(data.slotIndex < slotCount)
             {
-                Slot slot = inventoryHud.transform.GetChild(data.slotIndex).GetComponent<Slot>();
+                InventorySlot slot = inventoryHud.transform.GetChild(data.slotIndex).GetComponent<InventorySlot>();
                 GameObject itemPrefab = itemDictionary.GetItemPrefab(data.itemID);
                 if(itemPrefab != null)
                 {
