@@ -9,6 +9,7 @@ public class PlayerAttack : MonoBehaviour
     public LayerMask bossLayer;
     public Transform attackPoint;
     public int attackDamage = 100;
+    public Transform bossTarget;
     private void Start()
     {
         anim = GetComponent<Animator>();
@@ -28,7 +29,8 @@ public class PlayerAttack : MonoBehaviour
     {
         anim.SetTrigger(trigger);
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, bossLayer);
-        BossEvents.TriggerBossAttacked(attackDamage);
+        if(Vector3.Distance(transform.position, bossTarget.position) <= 4)
+            BossEvents.TriggerBossAttacked(attackDamage);
 
     }
 

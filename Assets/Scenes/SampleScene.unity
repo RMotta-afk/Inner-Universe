@@ -555,6 +555,7 @@ MonoBehaviour:
     m_Bits: 512
   attackPoint: {fileID: 265318562}
   attackDamage: 100
+  bossTarget: {fileID: 2121555353}
 --- !u!1 &204313216
 GameObject:
   m_ObjectHideFlags: 0
@@ -11158,7 +11159,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: New Text
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 03c9a5db62f5036428d20ed5c0c4c60c, type: 2}
   m_sharedMaterial: {fileID: 7317502521209494168, guid: 03c9a5db62f5036428d20ed5c0c4c60c, type: 2}
@@ -11449,7 +11450,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: New Text
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 03c9a5db62f5036428d20ed5c0c4c60c, type: 2}
   m_sharedMaterial: {fileID: 7317502521209494168, guid: 03c9a5db62f5036428d20ed5c0c4c60c, type: 2}
@@ -11649,6 +11650,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   menuCanvas: {fileID: 1403214318}
   darkScreen: {fileID: 2070007261}
+  itemName: {fileID: 0}
+  itemDesc: {fileID: 0}
 --- !u!1 &1282867327
 GameObject:
   m_ObjectHideFlags: 0

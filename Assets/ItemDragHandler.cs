@@ -96,7 +96,7 @@ public class ItemDragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
             return;
         }
 
-        Vector2 dropOffset = Random.insideUnitCircle.normalized * Random.RandomRange(minDropDistance, maxDropDistance);
+        Vector2 dropOffset = Random.insideUnitCircle.normalized * Random.Range(minDropDistance, maxDropDistance);
         Vector2 dropPosition = (Vector2)playerTransform.position + dropOffset;
 
         Instantiate(gameObject, dropPosition, Quaternion.identity);

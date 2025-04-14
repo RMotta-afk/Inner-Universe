@@ -1,9 +1,12 @@
+using TMPro;
 using UnityEngine;
 
 public class MenuController : MonoBehaviour
 {
     public GameObject menuCanvas;
     public GameObject darkScreen;
+    public TextMeshProUGUI itemName;
+    public TextMeshProUGUI itemDesc;
     void Start()
     {
         menuCanvas.SetActive(false);
@@ -22,6 +25,12 @@ public class MenuController : MonoBehaviour
             menuCanvas.SetActive(!menuCanvas.activeSelf);
             darkScreen.SetActive(!darkScreen.activeSelf);
             PauseController.SetPause(menuCanvas.activeSelf);
+
+            if (!menuCanvas.activeSelf)
+            {
+                itemName.text = string.Empty;
+                itemDesc.text = string.Empty;
+            }
         }
     }
 }

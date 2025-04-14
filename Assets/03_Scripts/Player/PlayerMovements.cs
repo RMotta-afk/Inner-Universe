@@ -38,7 +38,7 @@ public class PlayerMovements : MonoBehaviour
         PlayerEvents.OnPlayerMovement += Move;
         PlayerEvents.OnPlayerStop += StopMovement;
         PlayerEvents.OnPlayerJump += Jump;
-        PlayerEvents.OnPlayerJump += StopMoving;
+        PlayerEvents.OnStopAfterDeath += StopMoving;
     }
 
     private void OnDisable()
@@ -46,7 +46,7 @@ public class PlayerMovements : MonoBehaviour
         PlayerEvents.OnPlayerMovement -= Move;
         PlayerEvents.OnPlayerStop -= StopMovement;
         PlayerEvents.OnPlayerJump -= Jump;
-        PlayerEvents.OnPlayerJump -= StopMoving;
+        PlayerEvents.OnStopAfterDeath  -= StopMoving;
 
     }
 

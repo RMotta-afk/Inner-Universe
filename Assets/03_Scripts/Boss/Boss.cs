@@ -71,11 +71,12 @@ namespace Assets._03_Scripts.Boss
         {
             _currentHealth -= damage;
             
-            if(_currentHealth >= 0)
+            if(_currentHealth <= 0)
             {
-                UpdateUI();
+                Die();
+                
             }
-            
+            UpdateUI();
         }
 
         private void Die()
