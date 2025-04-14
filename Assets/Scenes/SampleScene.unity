@@ -549,7 +549,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53c805015bd5f334e8e0e9898fd7121a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackRange: 2
+  attackRange: 1
   bossLayer:
     serializedVersion: 2
     m_Bits: 512
@@ -16175,7 +16175,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 88601292}
   isFlipped: 0
-  bossHealth: 100
   healthUI: {fileID: 1139549628}
   _anim: {fileID: 0}
   healthAmount: {fileID: 1604659506}
