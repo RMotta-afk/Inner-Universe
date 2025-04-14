@@ -38,7 +38,8 @@ A 2D Unity prototype demonstrating core gameplay mechanics, inventory system, an
 
 ### Extras (Optional)
 
-✨ Boss fight  
+✨ Boss fight, Death and Hurt animations
+
 ✨ Sound effects/VFX
 
 ---
