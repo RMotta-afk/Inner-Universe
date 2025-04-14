@@ -4,7 +4,7 @@
 
 ## Project Overview
 
-A [2D/3D] Unity prototype demonstrating core gameplay mechanics, inventory system, and save/load functionality. Built with Unity **6000.0.35f1**.
+A 2D Unity prototype demonstrating core gameplay mechanics, inventory system, and save/load functionality. Built with Unity **6000.0.35f1**.
 
 ---
 
@@ -38,7 +38,8 @@ A [2D/3D] Unity prototype demonstrating core gameplay mechanics, inventory syste
 
 ### Extras (Optional)
 
-✨ Boss fight  
+✨ Boss fight, Death and Hurt animations
+
 ✨ Sound effects/VFX
 
 ---
@@ -69,5 +70,9 @@ A [2D/3D] Unity prototype demonstrating core gameplay mechanics, inventory syste
 ## Final words
 
 It was a good opportunity. I did the simple and the basic.
+I first thought about creating a clean and fully organised folder structure. In the end, I couldn’t do this as the time was passing and there was a lot of things to do.
+Creating games is like this, looks like there is always something to do, but I enjoyed it.
+I preferred an event-based architecture because its cleaner and less decoupled, I also tried to create a good useCase system, to avoid weird behaviours after deaths, movements and other actions made by the player.
+I liked what I did in this short time, but it wasn’t what I wanted to do. I did well, but I can do more.
 
 ## Project Structure (GitHub)
