@@ -14,9 +14,11 @@ GameObject:
   - component: {fileID: 1493387368644748022}
   - component: {fileID: 4023957340565316514}
   - component: {fileID: -269001274695907461}
+  - component: {fileID: 1900710901060668435}
+  - component: {fileID: 3438419533306705241}
   m_Layer: 5
   m_Name: Fruit
-  m_TagString: Untagged
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -68,7 +70,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -4758137884591621448, guid: 4aafcc1b137380f48971c4bb02ee49e5, type: 3}
+  m_Sprite: {fileID: -6155399457816521056, guid: 4aafcc1b137380f48971c4bb02ee49e5, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -117,6 +119,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 2
-  Name: Fruit
-  Description: +5 HP
-  itemImage: {fileID: 2578884500040919312}
