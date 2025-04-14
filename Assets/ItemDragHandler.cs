@@ -1,7 +1,8 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
-public class ItemDragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
+public class ItemDragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IPointerClickHandler
 {
     Transform originalParent;
     CanvasGroup canvasGroup;
@@ -12,6 +13,7 @@ public class ItemDragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
     {
         canvasGroup = GetComponent<CanvasGroup>();
     }
+
 
     public void OnBeginDrag(PointerEventData eventData)
     {
@@ -100,5 +102,16 @@ public class ItemDragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
         Instantiate(gameObject, dropPosition, Quaternion.identity);
 
         Destroy(gameObject);
+    }
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+
+        var itemData = eventData.pointerClick?.GetComponent<Item>();
+
+        DisplayItemInfos display = FindFirstObjectByType<DisplayItemInfos>();
+        if (display != null)
+            display.ShowData(itemData);
+
     }
 }
