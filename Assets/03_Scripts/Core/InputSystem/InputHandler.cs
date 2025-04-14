@@ -2,11 +2,16 @@ using UnityEngine;
 
 public class InputHandler : MonoBehaviour
 {
+    public bool canHandle = true;
     private void Update()
     {
-        HandlePlayerMovement();
-        HandlePlayerJump();
-        HandleAttack();
+        if (canHandle)
+        {
+            HandlePlayerMovement();
+            HandlePlayerJump();
+            HandleAttack();
+        }
+
     }
 
     private void HandlePlayerMovement()
@@ -32,10 +37,16 @@ public class InputHandler : MonoBehaviour
 
     private void HandleAttack()
     {
-        if (Input.GetKeyDown(KeyCode.B) )
+        if (Input.GetKeyDown(KeyCode.Z) )
         {
-            PlayerEvents.TriggerPlayerAttack();
+            PlayerEvents.TriggerPlayerAttack("Attack1");
+
+        }
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            PlayerEvents.TriggerPlayerAttack("Attack2");
 
         }
     }
+
 }

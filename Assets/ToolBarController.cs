@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -70,6 +71,8 @@ public class ToolBarController : MonoBehaviour
 
         for (int i = 0; i < slotCount; i++)
         {
+            var slotNumber = inventorySlotPreFab.GetComponentInChildren<TextMeshProUGUI>();
+            slotNumber.text = i.ToString();
             Instantiate(inventorySlotPreFab, toolbarHud.transform);
         }
         foreach (InventorySaveData data in invData)

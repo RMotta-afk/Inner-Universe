@@ -1,13 +1,15 @@
 using Assets._03_Scripts.Boss;
+using Assets._03_Scripts.Core.Events;
 using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
     private Animator anim;
-    public float attackRange = 0.5f;
+    public float attackRange = 1f;
     public LayerMask bossLayer;
     public Transform attackPoint;
-    public int attackDamage = 10;
+    public int attackDamage = 100;
+    public Transform bossTarget;
     private void Start()
     {
         anim = GetComponent<Animator>();
@@ -23,18 +25,21 @@ public class PlayerAttack : MonoBehaviour
         PlayerEvents.OnPlayerAttack -= Attack;
 
     }
-    private void Attack()
+    private void Attack(string trigger)
     {
-        anim.SetTrigger("Attack");
-
+        anim.SetTrigger(trigger);
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, bossLayer);
-        Boss boss = GetComponent<Boss>();
-
-        if (boss != null)
-        {
-            boss.TakeDamage(attackDamage);
-        }
+        if(Vector3.Distance(transform.position, bossTarget.position) <= 4)
+            BossEvents.TriggerBossAttacked(attackDamage);
 
     }
+
+    private void OnDrawGizmosSelected()
+    {
+        if (attackPoint == null)
+            return;
+
+        Gizmos.DrawWireSphere(attackPoint.position, attackRange);
+    }
 }
-    
+
