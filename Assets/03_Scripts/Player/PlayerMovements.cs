@@ -7,12 +7,13 @@ public class PlayerMovements : MonoBehaviour
     private Transform cameraTransform;
     private Animator anim;
     private Collider2D coll;
+    private AudioSource footsteps;
     public LayerMask ground;
     [SerializeField] private float _moveSpeed = 5f;
     [SerializeField] private int _health = 100;
     private readonly float jumpForce = 10f;
 
-    public enum State { idle, walking, jumping, falling}
+    public enum State { idle, walking, jumping, falling }
 
     private State state = State.idle;
 
@@ -22,10 +23,18 @@ public class PlayerMovements : MonoBehaviour
         cameraTransform = GetComponent<Transform>();
         anim = GetComponent<Animator>();
         coll = GetComponent<Collider2D>();
+        footsteps = GetComponent<AudioSource>();
     }
 
     private void OnEnable()
     {
+        if (PauseController.IsGamePaused)
+        {
+            _rb.linearVelocity = Vector2.zero;
+            state = State.idle;
+            return;
+        }
+
         PlayerEvents.OnPlayerMovement += Move;
         PlayerEvents.OnPlayerStop += StopMovement;
         PlayerEvents.OnPlayerJump += Jump;
@@ -36,10 +45,16 @@ public class PlayerMovements : MonoBehaviour
         PlayerEvents.OnPlayerMovement -= Move;
         PlayerEvents.OnPlayerStop -= StopMovement;
         PlayerEvents.OnPlayerJump -= Jump;
-        
+
     }
     private void Update()
     {
+        if (PauseController.IsGamePaused)
+        {
+            _rb.linearVelocity = Vector2.zero;
+            state = State.idle;
+            return;
+        }
         HandleStateChanges();
         anim.SetInteger("state", (int)state);
     }
@@ -95,5 +110,10 @@ public class PlayerMovements : MonoBehaviour
         {
             state = State.idle;
         }
+    }
+
+    private void Footsteps()
+    {
+        footsteps.Play();
     }
 }
