@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class InputHandler : MonoBehaviour
@@ -7,15 +6,6 @@ public class InputHandler : MonoBehaviour
     {
         HandlePlayerMovement();
         HandlePlayerJump();
-        HandlePlayerAttack();
-    }
-
-    private void HandlePlayerAttack()
-    {
-        if (Input.GetKeyDown(KeyCode.B))
-        {
-            PlayerEvents.TriggerPlayerAttackMovement();
-        }
     }
 
     private void HandlePlayerMovement()

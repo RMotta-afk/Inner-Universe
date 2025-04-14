@@ -34,18 +34,18 @@ public class ItemDragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
         canvasGroup.blocksRaycasts = true;
         canvasGroup.alpha = 1f;
 
-        InventorySlot dropSlot = eventData.pointerEnter?.GetComponent<InventorySlot>();
+        Slot dropSlot = eventData.pointerEnter?.GetComponent<Slot>();
 
         if (dropSlot == null)
         {
             GameObject item = eventData.pointerEnter;
             if (item != null)
             {
-                dropSlot = item.GetComponentInParent<InventorySlot>();
+                dropSlot = item.GetComponentInParent<Slot>();
             }
         }
 
-        InventorySlot originalSlot = originalParent.GetComponent<InventorySlot>();
+        Slot originalSlot = originalParent.GetComponent<Slot>();
 
         if (dropSlot != null)
         {
@@ -84,7 +84,7 @@ public class ItemDragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
         return RectTransformUtility.RectangleContainsScreenPoint(inventoryRect, mousePosition);
     }
 
-    void DropItem(InventorySlot originalSlot)
+    void DropItem(Slot originalSlot)
     {
         originalSlot.currentItem = null;
 
