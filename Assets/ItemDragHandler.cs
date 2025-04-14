@@ -6,6 +6,8 @@ public class ItemDragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
     Transform originalParent;
     CanvasGroup canvasGroup;
 
+    public float minDropDistance = 2f;
+    public float maxDropDistance = 3f;
     private void Start()
     {
         canvasGroup = GetComponent<CanvasGroup>();
@@ -26,15 +28,16 @@ public class ItemDragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
 
     public void OnEndDrag(PointerEventData eventData)
     {
+
         canvasGroup.blocksRaycasts = true;
         canvasGroup.alpha = 1f;
 
         Slot dropSlot = eventData.pointerEnter?.GetComponent<Slot>();
 
-        if(dropSlot == null)
+        if (dropSlot == null)
         {
             GameObject item = eventData.pointerEnter;
-            if(item != null)
+            if (item != null)
             {
                 dropSlot = item.GetComponentInParent<Slot>();
             }
@@ -42,9 +45,9 @@ public class ItemDragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
 
         Slot originalSlot = originalParent.GetComponent<Slot>();
 
-        if(dropSlot != null)
+        if (dropSlot != null)
         {
-            if(dropSlot.currentItem != null)
+            if (dropSlot.currentItem != null)
             {
                 dropSlot.currentItem.transform.SetParent(originalParent.transform);
                 originalSlot.currentItem = dropSlot.currentItem;
@@ -59,9 +62,43 @@ public class ItemDragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
         }
         else
         {
-            transform.SetParent(originalParent);
+            if (!isAtInventory(eventData.position))
+            {
+                DropItem(originalSlot);
+            }
+            else
+            {
+                transform.SetParent(originalParent);
+            }
+
         }
 
         GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
+    }
+
+    bool isAtInventory(Vector2 mousePosition)
+    {
+        RectTransform inventoryRect = originalParent.parent.GetComponent<RectTransform>();
+        return RectTransformUtility.RectangleContainsScreenPoint(inventoryRect, mousePosition);
+    }
+
+    void DropItem(Slot originalSlot)
+    {
+        originalSlot.currentItem = null;
+
+        Transform playerTransform = GameObject.FindGameObjectWithTag("Player")?.transform;
+
+        if (playerTransform == null)
+        {
+            Debug.LogError("Missing Player Tag");
+            return;
+        }
+
+        Vector2 dropOffset = Random.insideUnitCircle.normalized * Random.RandomRange(minDropDistance, maxDropDistance);
+        Vector2 dropPosition = (Vector2)playerTransform.position + dropOffset;
+
+        Instantiate(gameObject, dropPosition, Quaternion.identity);
+
+        Destroy(gameObject);
     }
 }

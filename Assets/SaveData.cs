@@ -12,5 +12,7 @@ public class SaveData
 
     public List<InventorySaveData> inventorySaveData;
 
+    public List<InventorySaveData> toolBarSaveData;
+
 }
 
