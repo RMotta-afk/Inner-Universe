@@ -41,6 +41,7 @@ public class ToolBarController : MonoBehaviour
         {
             Item item = slot.currentItem.GetComponent<Item>();
             item.UseItem();
+            
         }
     }
 
