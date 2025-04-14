@@ -9,5 +9,8 @@ using System.Threading.Tasks;
 public class SaveData
 {
     public Vector3 playerPosition;
+
+    public List<InventorySaveData> inventorySaveData;
+
 }
 
