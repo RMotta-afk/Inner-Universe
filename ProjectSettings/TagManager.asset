@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 3
   tags:
   - Item
+  - Boss
   layers:
   - Default
   - TransparentFX
@@ -44,6 +45,9 @@ TagManager:
     locked: 0
   - name: Background
     uniqueID: 1290019789
+    locked: 0
+  - name: Interlude
+    uniqueID: 461364057
     locked: 0
   - name: Entity
     uniqueID: 3835601379

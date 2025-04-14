@@ -16,12 +16,12 @@ public class MenuController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.P))
         {
-            if (!menuCanvas.activeSelf && PauseController.IsGamePaused)
-                return;
+            //if (!menuCanvas.activeSelf && PauseController.IsGamePaused)
+            //    return;
 
             menuCanvas.SetActive(!menuCanvas.activeSelf);
             darkScreen.SetActive(!darkScreen.activeSelf);
-            PauseController.SetPause(menuCanvas.activeSelf);
+            //PauseController.SetPause(menuCanvas.activeSelf);
         }
     }
 }
