@@ -102,6 +102,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32fc081eb1fcfe44c8054f8e008e55b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  minDropDistance: 2
+  maxDropDistance: 3
 --- !u!114 &-269001274695907461
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -115,3 +117,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 2
+  Name: Fruit
+  Description: +5 HP
+  itemImage: {fileID: 2578884500040919312}
